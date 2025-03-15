@@ -3,7 +3,8 @@ from ultralytics import YOLO
 # Build the model from scratch using the YOLOv8s configuration
 model = YOLO("yolov8s.yaml")
 
-# Train the model on the skin cancer dataset with enhanced augmentation and limited color variance
+# Train the model on the skin cancer dataset with enhanced augmentation,
+# limited color variance, and explicit GPU usage.
 model.train(
     data='data_skin_cancer.yaml',    # Path to the skin cancer dataset configuration
     epochs=300,                      # Increased epochs for thorough training
@@ -25,5 +26,6 @@ model.train(
     name='exp_final',                # Name of the experiment
     save_period=10,                  # Save model weights every 10 epochs
     verbose=True,                    # Enable verbose logging for detailed output
-    amp=True,                        # Enable automatic mixed precision for faster, efficient training
+    amp=True,                        # Enable automatic mixed precision for efficient training
+    device='cuda:0',                 # Explicitly specify GPU device
 )

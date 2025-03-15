@@ -3,7 +3,8 @@ from ultralytics import YOLO
 # Build the model from scratch using the YOLOv8 nano configuration
 model = YOLO("yolov8n.yaml")
 
-# Train the model on the acne dataset with optimized settings and limited color variance
+# Train the model on the acne dataset with optimized settings,
+# limited color variance, and explicit GPU usage.
 model.train(
     data='data.yaml',            # Path to dataset configuration
     epochs=200,                  # Total training epochs with early stopping (patience=10)
@@ -25,5 +26,6 @@ model.train(
     name='exp_final',            # Name of the experiment
     save_period=10,              # Save model weights every 10 epochs
     verbose=True,                # Enable verbose logging for detailed output
-    amp=True,                    # Enable automatic mixed precision for faster, efficient training
+    amp=True,                    # Enable automatic mixed precision for efficient training
+    device='cuda:0',             # Explicitly specify GPU device
 )
