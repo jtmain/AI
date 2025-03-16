@@ -7,7 +7,7 @@ model = YOLO("yolov8n.yaml")
 # limited color variance, and explicit GPU usage.
 model.train(
     data='data.yaml',            # Path to dataset configuration
-    epochs=200,                  # Total training epochs with early stopping (patience=10)
+    epochs=800,                  # Total training epochs with early stopping (patience=10)
     batch=16,                    # Batch size (adjustable depending on GH200 GPU memory)
     imgsz=1280,                  # High resolution to capture detailed acne features
     optimizer='AdamW',           # Optimizer with weight decay for improved generalization
@@ -21,7 +21,7 @@ model.train(
     hsv_v=0.1,                   # Limited HSV value augmentation to reduce color variance
     translate=0.05,              # Small translation augmentation
     scale=0.9,                   # Minor scaling augmentation
-    patience=10,                 # Early stopping patience to avoid overfitting
+    patience=0,                 # Early stopping patience to avoid overfitting
     project='runs/acne_exp_optimized',  # Directory to save training results
     name='exp_final',            # Name of the experiment
     save_period=10,              # Save model weights every 10 epochs

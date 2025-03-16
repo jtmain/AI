@@ -1,8 +1,10 @@
+#acne detection
 train: ../train/images
 val: ../valid/images
 test: ../test/images
 
 
-nc: 6
-names: ['blackheads', 'dark spot', 'nodules', 'papules', 'pustules', 'whiteheads']
+nc: 10
+names: ['Pimples', 'blackhead', 'conglobata', 'crystanlline', 'cystic', 'folliculitis', 'keloid', 'milium', 'papular', 'purulent']
+
 

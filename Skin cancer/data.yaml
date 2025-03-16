@@ -1,3 +1,4 @@
+# skin cancer detection 
 train: ../train/images
 val: ../valid/images
 test: ../test/images
